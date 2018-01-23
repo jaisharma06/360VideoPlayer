@@ -5,6 +5,12 @@ public class VideoPlayerController : MonoBehaviour
 {
     [SerializeField]
     private VideoPlayer videoPlayer;
+    [SerializeField]
+    private int minTimeChangeButton = 10;
+    [SerializeField]
+    private int maxTimeChangeButton = 20;
+    [SerializeField]
+    private GameObject changeButton;
 
     private void Start()
     {
@@ -17,6 +23,15 @@ public class VideoPlayerController : MonoBehaviour
     private void Update()
     {
         ControlVideo();
+
+        if (videoPlayer.time > minTimeChangeButton && videoPlayer.time < maxTimeChangeButton)
+        {
+            changeButton.SetActive(true);
+        }
+        else
+        {
+            changeButton.SetActive(false);
+        }
     }
 
     private void ControlVideo()
