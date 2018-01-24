@@ -1,5 +1,5 @@
 # 360VideoPlayer
-------------
+
 INSTRUCTIONS
 ------------
 
