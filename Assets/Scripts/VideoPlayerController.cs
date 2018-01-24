@@ -11,6 +11,10 @@ public class VideoPlayerController : MonoBehaviour
     private int maxTimeChangeButton = 20;
     [SerializeField]
     private GameObject changeButton;
+    [SerializeField]
+    private VideoClip m_secondVideoClip;
+
+    private VideoClip initVideoClip;
 
     private void Start()
     {
@@ -18,6 +22,8 @@ public class VideoPlayerController : MonoBehaviour
         {
             videoPlayer = GetComponent<VideoPlayer>();
         }
+
+        initVideoClip = videoPlayer.clip;
     }
 
     private void Update()
@@ -57,5 +63,19 @@ public class VideoPlayerController : MonoBehaviour
         {
             videoPlayer.Play();
         }
+    }
+
+    public void ChangeVideo()
+    {
+        var videoClip = m_secondVideoClip;
+        videoPlayer.Stop();
+        if (videoPlayer.clip != initVideoClip)
+        {
+
+            videoClip = initVideoClip;
+            
+        }
+        videoPlayer.clip = videoClip;
+        videoPlayer.Play();
     }
 }
